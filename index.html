@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Tarefas</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    </head>
+
+    <body>
+        <div class="todo_list">
+            <div class="erro invisible">
+                <span class="material-symbols-outlined">
+                    error
+                </span>
+                <p>Mensagem de erro</p>
+                <span class="timer"></span>
+            </div>
+
+            <div class="todo_list__input">
+                <input type="text" placeholder="Nome da Tarefa" class="input" maxlength="35" minlength="6">
+                <button class="adicionar">+</button>
+                <span class="qtd_tarefas">
+                    <p class="num_tarefas">0</pq>
+                    <p>/6</p>
+                </span>
+            </div>
+
+            <ul class="todo_list__tarefa">
+                
+            </ul>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>

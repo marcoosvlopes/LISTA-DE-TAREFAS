@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #1d1d1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body .todo_list {
+    width: 20rem;
+    height: 25rem;
+    background-color: #2f2f2f;
+    border-radius: .5rem;
+    display: grid;
+    grid-template-areas: 'input' 'tarefas';
+    grid-template-rows: 30px auto;
+    padding: .5rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,.5);
+    gap: 1rem;
+    position: relative;
+}
+
+::placeholder {
+    color: white;
+}
+
+body .erro {
+    position: absolute;
+    top: -11%;
+    padding: 5px 8px;
+    font-size: .9rem;
+    width: 100%;
+    background-color: rgb(243, 1, 1);
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1.5rem auto;
+    align-items: center;
+    gap: .3rem;
+    color: #fafafa;
+    overflow: hidden;
+}
+
+body .timer {
+    width: 100%;
+    background-color: #f8f9fa;
+    height: 1.5px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    animation: timer 5s linear;
+}
+.invisible {
+    display: none !important;
+}
+
+body .todo_list__input {
+    grid-area: input;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: .5rem;
+}
+
+body .todo_list__input > input[type="text"]{
+    background-color: #1d1d1d;
+    padding: 8px;
+    border-radius: 4px;
+    color: #f8f9fa;
+    width: 100%;
+}
+
+body .todo_list__input > input[type="text"]:focus {
+    outline: 1px solid greenyellow;
+}
+
+body .todo_list__input > button {
+    background-color: #1d1d1d;
+    color: greenyellow;
+    padding: 8px 11px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.spin {
+    animation: spin 100ms linear;
+}
+
+.full {
+    animation: full 250ms linear;
+}
+
+body .todo_list__input > button:hover {
+    background-color: greenyellow;
+    color: #1d1d1d;
+}
+
+body .todo_list__input > button:active {
+    transform: scale(.95);
+}
+
+body .qtd_tarefas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 5rem;
+    height: 100%;
+    font-size: .9rem;
+    background-color: #1d1d1d;
+    border-radius: 4px;
+}
+
+body .todo_list__tarefa {
+    grid-area: tarefas;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: .5rem;
+    overflow: auto;
+}
+
+body .todo_list__tarefa .tarefa {
+    display: grid;
+    gap: .5rem;
+    align-items: center;
+    grid-template-columns: 1rem auto 1.7rem;
+    padding: 0px 0px 0px 8px;
+    min-height: 3rem;
+    width: 100%;
+    background-color: #1d1d1d;
+    border-radius: 4px;
+    color: #f8f9fa;
+    font-size: .8rem;
+    overflow: hidden;
+}
+
+.concluido {
+    opacity: .5;
+    /* text-decoration: line-through; */
+    background-color: rgb(0, 33, 0) !important;
+}
+
+body .todo_list__tarefa .tarefa .done {
+    border-radius: 50%;
+    appearance: none;
+    background: #2f2f2f;
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+body .todo_list__tarefa .tarefa .done:checked {
+    outline: 3px solid greenyellow;
+    outline-offset: -8px;
+    background: transparent;
+    border: 1px solid greenyellow;
+}
+
+body .todo_list__tarefa .tarefa .remover {
+    background-color: rgb(225, 17, 17);
+    color: white;
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+body .todo_list__tarefa .tarefa .remover:hover {
+    background-color: rgb(193, 14, 14);
+}
+
+body .todo_list__tarefa .tarefa .remover:active {
+    background-color: rgb(133, 10, 10);
+}
+
+body .todo_list__tarefa .tarefa .remover > span {
+    font-size: 1rem;
+    transform: translateY(2px);
+}
+
+@keyframes spin {
+    from {transform: rotate(0deg)}
+    to {transform: rotate(90deg)}
+}
+
+@keyframes full {
+    0% {
+        transform: translateX(-3px);
+        background-color: rgb(225, 17, 17);
+    }
+    25% {
+        transform: translateX(3px);
+        background-color: rgb(225, 17, 17);
+    }
+    50% {
+        transform: translateX(-3px);
+        background-color: rgb(225, 17, 17);
+    }
+    75% {
+        transform: translateX(-3px);
+        background-color: rgb(225, 17, 17);
+    }
+    100% {
+        transform: translateX(0px);
+        background-color: rgb(225, 17, 17);
+    }
+    
+}
+
+@keyframes timer {
+    from { width: 100%;}
+    to { width: 0%;}
+}
